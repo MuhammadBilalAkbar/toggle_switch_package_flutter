@@ -2,20 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: Text(title),
         ),
         body: Padding(
           padding: const EdgeInsets.only(top: 20, bottom: 20),
@@ -26,10 +21,10 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   const TextWithPadding('Basic toggle switch:'),
                   ToggleSwitch(
-                    initialLabelIndex: 0,
                     totalSwitches: 3,
-                    fontSize: 16,
                     labels: const ['America', 'Canada', 'Mexico'],
+                    initialLabelIndex: 0,
+                    fontSize: 13,
                     onToggle: (index) => debugPrint(
                       'Basic toggle switch => switched to: $index',
                     ),
@@ -38,22 +33,25 @@ class _HomePageState extends State<HomePage> {
                     'Basic toggle switch with custom height and font size:',
                   ),
                   ToggleSwitch(
+                    totalSwitches: 3,
+                    labels: const ['Tall', 'Grande', 'Venti'],
+                    initialLabelIndex: 1,
+                    fontSize: 20,
                     minWidth: 90,
                     minHeight: 90,
-                    fontSize: 25,
-                    initialLabelIndex: 1,
                     activeBgColor: const [Colors.green],
                     activeFgColor: Colors.white,
                     inactiveBgColor: Colors.grey,
                     inactiveFgColor: Colors.grey[900],
-                    totalSwitches: 3,
-                    labels: const ['Tall', 'Grande', 'Venti'],
                     onToggle: (index) => debugPrint(
                       'Basic toggle switch with custom height and font size => switched to: $index',
                     ),
                   ),
                   const TextWithPadding('With text or icon and custom widths:'),
                   ToggleSwitch(
+                    totalSwitches: 2,
+                    labels: const ['YES', ''],
+                    icons: const [null, FontAwesomeIcons.xmark],
                     customWidths: const [90, 50],
                     cornerRadius: 20,
                     activeBgColors: const [
@@ -63,9 +61,6 @@ class _HomePageState extends State<HomePage> {
                     activeFgColor: Colors.white,
                     inactiveBgColor: Colors.grey,
                     inactiveFgColor: Colors.white,
-                    totalSwitches: 2,
-                    labels: const ['YES', ''],
-                    icons: const [null, FontAwesomeIcons.xmark],
                     onToggle: (index) => debugPrint(
                       'With text or icon and custom widths => switched to: $index',
                     ),
@@ -74,18 +69,18 @@ class _HomePageState extends State<HomePage> {
                     'With icons, text and different active background colors:',
                   ),
                   ToggleSwitch(
-                    minWidth: 90,
-                    initialLabelIndex: 1,
-                    cornerRadius: 20,
-                    activeFgColor: Colors.white,
-                    inactiveBgColor: Colors.grey,
-                    inactiveFgColor: Colors.white,
                     totalSwitches: 2,
                     labels: const ['Male', 'Female'],
                     icons: const [
                       FontAwesomeIcons.mars,
                       FontAwesomeIcons.venus,
                     ],
+                    initialLabelIndex: 1,
+                    cornerRadius: 20,
+                    minWidth: 90,
+                    activeFgColor: Colors.white,
+                    inactiveBgColor: Colors.grey,
+                    inactiveFgColor: Colors.white,
                     activeBgColors: const [
                       [Colors.blue],
                       [Colors.pink],
@@ -98,19 +93,19 @@ class _HomePageState extends State<HomePage> {
                     'With border color, border width, icons, custom height and different active background colors',
                   ),
                   ToggleSwitch(
-                    minWidth: 90,
-                    minHeight: 70,
-                    initialLabelIndex: 2,
-                    cornerRadius: 20,
-                    activeFgColor: Colors.white,
-                    inactiveBgColor: Colors.grey,
-                    inactiveFgColor: Colors.white,
                     totalSwitches: 3,
                     icons: const [
                       FontAwesomeIcons.mars,
                       FontAwesomeIcons.venus,
                       FontAwesomeIcons.transgender,
                     ],
+                    initialLabelIndex: 2,
+                    minWidth: 90,
+                    minHeight: 70,
+                    cornerRadius: 20,
+                    activeFgColor: Colors.white,
+                    inactiveBgColor: Colors.grey,
+                    inactiveFgColor: Colors.white,
                     iconSize: 30,
                     borderWidth: 3,
                     borderColor: const [Colors.blueGrey],
@@ -127,6 +122,12 @@ class _HomePageState extends State<HomePage> {
                     'With gradient border color, divider color and gradient active background colors',
                   ),
                   ToggleSwitch(
+                    totalSwitches: 3,
+                    icons: const [
+                      FontAwesomeIcons.facebook,
+                      FontAwesomeIcons.twitter,
+                      FontAwesomeIcons.instagram,
+                    ],
                     minWidth: 90,
                     minHeight: 70,
                     initialLabelIndex: 1,
@@ -134,12 +135,6 @@ class _HomePageState extends State<HomePage> {
                     activeFgColor: Colors.white,
                     inactiveBgColor: Colors.grey,
                     inactiveFgColor: Colors.white,
-                    totalSwitches: 3,
-                    icons: const [
-                      FontAwesomeIcons.facebook,
-                      FontAwesomeIcons.twitter,
-                      FontAwesomeIcons.instagram,
-                    ],
                     iconSize: 20,
                     borderColor: const [
                       Color(0xff3b5998),
@@ -167,6 +162,11 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const TextWithPadding('With bounceInOut animation'),
                   ToggleSwitch(
+                    totalSwitches: 2,
+                    icons: const [
+                      FontAwesomeIcons.lightbulb,
+                      FontAwesomeIcons.solidLightbulb,
+                    ],
                     minWidth: 90.0,
                     minHeight: 70.0,
                     initialLabelIndex: 1,
@@ -174,11 +174,6 @@ class _HomePageState extends State<HomePage> {
                     activeFgColor: Colors.white,
                     inactiveBgColor: Colors.grey,
                     inactiveFgColor: Colors.white,
-                    totalSwitches: 2,
-                    icons: const [
-                      FontAwesomeIcons.lightbulb,
-                      FontAwesomeIcons.solidLightbulb,
-                    ],
                     iconSize: 30.0,
                     activeBgColors: const [
                       [Colors.black45, Colors.black26],
@@ -193,8 +188,12 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const TextWithPadding('With radius style'),
                   ToggleSwitch(
+                    totalSwitches: 2,
+                    labels: const ['True', 'False'],
+                    initialLabelIndex: 1,
                     minWidth: 90.0,
                     cornerRadius: 20.0,
+                    radiusStyle: true,
                     activeBgColors: [
                       [Colors.green[800]!],
                       [Colors.red[800]!],
@@ -202,10 +201,6 @@ class _HomePageState extends State<HomePage> {
                     activeFgColor: Colors.white,
                     inactiveBgColor: Colors.grey,
                     inactiveFgColor: Colors.white,
-                    initialLabelIndex: 1,
-                    totalSwitches: 2,
-                    labels: const ['True', 'False'],
-                    radiusStyle: true,
                     onToggle: (index) => debugPrint(
                       'With radius style => switched to: $index',
                     ),
@@ -214,24 +209,26 @@ class _HomePageState extends State<HomePage> {
                     'With custom text styles, null initial label, double tap to de-activate',
                   ),
                   ToggleSwitch(
+                    totalSwitches: 3,
+                    labels: const ['Normal', 'Bold', 'Italic'],
                     minWidth: 90.0,
                     cornerRadius: 20.0,
                     inactiveFgColor: Colors.white,
                     initialLabelIndex: null,
                     doubleTapDisable: true,
                     // re-tap active widget to deactivate
-                    totalSwitches: 3,
-                    labels: const ['Normal', 'Bold', 'Italic'],
                     customTextStyles: const [
                       null,
                       TextStyle(
-                          color: Colors.brown,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w900),
+                        color: Colors.brown,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.w900,
+                      ),
                       TextStyle(
-                          color: Colors.black,
-                          fontSize: 16.0,
-                          fontStyle: FontStyle.italic)
+                        color: Colors.black,
+                        fontSize: 16.0,
+                        fontStyle: FontStyle.italic,
+                      ),
                     ],
                     onToggle: (index) => debugPrint(
                       'With custom text styles, null initial label, double tap to de-activate => switched to: $index',
@@ -239,17 +236,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const TextWithPadding('With custom icons'),
                   ToggleSwitch(
-                    minWidth: 90.0,
-                    minHeight: 90.0,
-                    cornerRadius: 20.0,
-                    activeBgColors: const [
-                      [Color(0xfffdbb0a)],
-                      [Colors.black54],
-                      [Colors.white54]
-                    ],
-                    inactiveFgColor: Colors.white,
-                    initialLabelIndex: 2,
                     totalSwitches: 3,
+                    initialLabelIndex: 2,
                     customIcons: const [
                       Icon(
                         FontAwesomeIcons.ccVisa,
@@ -265,8 +253,17 @@ class _HomePageState extends State<HomePage> {
                         FontAwesomeIcons.ccAmex,
                         color: Color(0xff27AEE3),
                         size: 55.0,
-                      )
+                      ),
                     ],
+                    minWidth: 90.0,
+                    minHeight: 90.0,
+                    cornerRadius: 20.0,
+                    activeBgColors: const [
+                      [Color(0xfffdbb0a)],
+                      [Colors.black54],
+                      [Colors.white54]
+                    ],
+                    inactiveFgColor: Colors.white,
                     onToggle: (index) => debugPrint(
                       'With custom icons => switched to: $index',
                     ),
@@ -275,6 +272,8 @@ class _HomePageState extends State<HomePage> {
                     'Vertical toggle switch with active border',
                   ),
                   ToggleSwitch(
+                    labels: const ['Spring', 'Summer', 'Fall', 'Winter'],
+                    initialLabelIndex: 2,
                     activeBorders: [
                       Border.all(color: Colors.purple, width: 3.0),
                       Border.all(color: Colors.yellow.shade700, width: 3.0),
@@ -286,19 +285,15 @@ class _HomePageState extends State<HomePage> {
                     minWidth: 150.0,
                     radiusStyle: true,
                     cornerRadius: 20.0,
-                    initialLabelIndex: 2,
                     activeBgColors: const [
                       [Colors.purpleAccent],
                       [Colors.yellow],
                       [Colors.orange],
                       [Colors.lightBlueAccent],
                     ],
-                    labels: const ['Spring', 'Summer', 'Fall', 'Winter'],
-                    onToggle: (index) {
-                      debugPrint(
-                        'Vertical toggle switch with active border => switched to: $index',
-                      );
-                    },
+                    onToggle: (index) => debugPrint(
+                      'Vertical toggle switch with active border => switched to: $index',
+                    ),
                   ),
                   const TextWithPadding(
                     'Custom widths greater than device width',
@@ -309,6 +304,11 @@ class _HomePageState extends State<HomePage> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         child: ToggleSwitch(
+                          labels: const [
+                            'Yes, the statement above is true',
+                            'False',
+                            'Other',
+                          ],
                           customWidths: const [300.0, 100.0, 100.0],
                           cornerRadius: 20.0,
                           activeBgColors: const [
@@ -319,11 +319,6 @@ class _HomePageState extends State<HomePage> {
                           activeFgColor: Colors.white,
                           inactiveBgColor: Colors.grey,
                           inactiveFgColor: Colors.white,
-                          labels: const [
-                            'Yes, the statement above is true',
-                            'False',
-                            'Other',
-                          ],
                           onToggle: (index) => debugPrint(
                             'Custom widths greater than device width => switched to: $index',
                           ),

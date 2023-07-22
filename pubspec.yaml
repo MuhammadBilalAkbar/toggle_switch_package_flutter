@@ -9,8 +9,10 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  toggle_switch: ^2.0.1
-  font_awesome_flutter: ^10.4.0
+  # For toggle switch
+  toggle_switch: ^2.1.0
+  # For icons
+  font_awesome_flutter: ^10.5.0
 
 dev_dependencies:
   flutter_test:
